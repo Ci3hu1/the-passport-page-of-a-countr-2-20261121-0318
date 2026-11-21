@@ -63,6 +63,24 @@ visual language; find our own recipe. Differences:
   byte-identical to the bundled image.
 - Kit check: see below (filled in after the check run).
 
+## Kit check (21 Nov 2026 ~11:22 WIB, kit level 32)
+
+- Result: **14 passed, 0 failed, 5 skipped, 5 checked at submission**
+  (exit 0). First run failed only `license_osi` (LICENSE lacked an
+  SPDX line); fixed with `SPDX-License-Identifier: MIT`, re-ran clean.
+- `thinking_reproduces` 94.5% (245/259 lines authored, 0 pasted);
+  `thinking_priced` passed on 1 usage record (parent session's row).
+- Bundle: `~/workspace/tools/makefun/the-passport-page-of-a-countr-2-20261121-0318-transcripts.tar.gz`
+  — 1,004,129 bytes, sha256
+  `6a9ada112c1d45b39bf46bb65cc4333a8b5bef5e99bcd70edb737ef14c5ea145`.
+- IMPORTANT for submit: this bundle was made while the builder
+  (subagent) run was still in progress, so the builder's own usage rows
+  are not attached yet (a subagent's rows are written only once its run
+  completes) and its final turns are not in it. Before submitting,
+  re-run the usage SELECT with the builder + parent agent_ids and
+  re-bundle with the same flags, then re-run check. The entry was
+  checked at commit `c89427ce071166e2894222338f6a40ba4ee7638b`.
+
 ## Live score / rank
 
 - Not submitted yet — this build is reported for Joni's 'Setuju' first.
