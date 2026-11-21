@@ -81,6 +81,43 @@ visual language; find our own recipe. Differences:
   re-bundle with the same flags, then re-run check. The entry was
   checked at commit `c89427ce071166e2894222338f6a40ba4ee7638b`.
 
+## v2 rebuild (21 Nov 2026, on Joni's order "Ubah foto nya dengan foto
+orang asli dan bentuk passportnya mengikuti format passport asli suatu
+negara")
+
+- Portrait: photorealistic passport photo of a fictional woman (Mara
+  Iversen), generated with the image tool — NOT an illustration, NOT
+  Joni, NOT a real identifiable person or celebrity. Plain light-grey
+  background, front-facing, neutral expression, head-and-shoulders.
+  Source: `portrait-mara-iversen.webp` (bundled in the repo);
+  rendered into the data page by `render_v2.py` (Pillow, 3x
+  supersample, LANCZOS to 1024x1024).
+- Format: data page rebuilt to a real passport format — Indonesian
+  passport / ICAO Doc 9303 TD3 data page. Photo on the left,
+  personal-data fields beside it with bilingual Indonesian/English
+  labels (Jenis/Type, Kode Negara/Country Code, No. Paspor/Passport
+  No., Nama/Name, Kewarganegaraan/Nationality, Tempat Lahir/Place of
+  Birth, Tanggal Lahir/Date of Birth, Jenis Kelamin/Sex), holder's
+  signature under the photo, issue/expiry/authority below, MRZ
+  (2 x 44 chars) at the bottom. The REMARKS block left the data page
+  (a real biodata page has none).
+- Fix found in review: "TANGGAL HABIS BERLAKU" was clipped at the
+  page edge at first render (label 392px at 3x vs 342px available);
+  moved the expiry column from x0+280 to x0+258, re-rendered, label
+  now fits with margin.
+- Unchanged: country, holder, all dates, all 4 stamps, Schengen visa,
+  CONDITIONS OF ISSUE text, tide line, MRZ lines, and the whole visa
+  page — the same content as v1.
+- MRZ re-verified by hand (ICAO 9303, weights 7-3-1): document
+  CAE004821 -> 5; birth 880612 -> 7; expiry 340314 -> 1; personal
+  number (all filler) -> 0; composite over the 39 covered
+  characters -> 0. All five check digits correct.
+- Image: 1024x1024, 323,445 bytes (gate: <= 1024x1024, <= 1,048,576).
+  `main.py` unchanged (pure stdlib, copies bundled entry.png).
+  Tests: 3/3 pass (`python3 tests/test_main.py`).
+- Kit check: (filled in after the check run).
+- Bundle: (filled in after the re-bundle).
+
 ## Live score / rank
 
 - Not submitted yet — this build is reported for Joni's 'Setuju' first.

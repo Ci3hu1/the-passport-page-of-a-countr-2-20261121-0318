@@ -62,10 +62,14 @@ Every date and number was checked against every other before rendering:
 
 - One document, one type system: DejaVu Serif Bold for the masthead and
   headings, DejaVu Sans for data, DejaVu Sans Mono for the MRZ and the
-  tide line. No other faces anywhere.
-- Cream paper, navy ink, one red accent — the same palette on both
-  pages, with stamp inks (blue, teal, navy, red) as the only other
-  colours.
+  tide line. No other faces anywhere. Labels on the data page are
+  bilingual Indonesian/English, as on a real Indonesian passport.
+- The data page follows the Indonesian passport / ICAO Doc 9303 TD3
+  layout: photograph on the left, personal-data fields beside it,
+  holder's signature under the photograph, issue/expiry/authority
+  below, machine-readable zone at the bottom. Cream paper, navy ink,
+  one red accent — the same palette on both pages, with stamp inks
+  (blue, teal, navy, red) as the only other colours.
 - Strict margins: both pages share the same double-rule border, the
   same header rule height, the same footer page numbers.
 - The spread is a flat, straight-on document photograph: two pages,
@@ -85,8 +89,14 @@ satisfied; the visual language and the story are ours.
 ## Engineering
 
 - Rendered at build time with Pillow at 3x supersample, LANCZOS
-  downscaled to 1024x1024 (the gate's maximum), 284,444 bytes (under
-  the 1,048,576-byte gate).
+  downscaled to 1024x1024 (the gate's maximum), 323,445 bytes (under
+  the 1,048,576-byte gate). The holder portrait is a generated
+  photorealistic photograph of a fictional person
+  (`portrait-mara-iversen.webp`, bundled in the repo); `render_v2.py`
+  centre-crops it to passport ratio and pastes it into the data page.
+  Long lines (masthead, stamp lines) auto-shrink to fit their boxes;
+  the render fails loudly if the output is not 1024x1024 or is over
+  1 MiB.
 - `main.py` is pure Python standard library: it copies the bundled
   `entry.png` to `$MAKEFUN_OUTPUT_DIR/entry.png`, then `/output/
   entry.png`, then `output.png` — first success wins — and chmods the
