@@ -115,8 +115,17 @@ negara")
 - Image: 1024x1024, 323,445 bytes (gate: <= 1024x1024, <= 1,048,576).
   `main.py` unchanged (pure stdlib, copies bundled entry.png).
   Tests: 3/3 pass (`python3 tests/test_main.py`).
-- Kit check: (filled in after the check run).
-- Bundle: (filled in after the re-bundle).
+- Kit check: **14 passed, 0 failed, 5 skipped, 5 checked at submission**
+  (21 Nov 2026 ~12:09 WIB, kit level 32). Bundle
+  `~/workspace/tools/makefun/the-passport-page-of-a-countr-2-20261121-0318-transcripts.tar.gz`
+  — 2,551,713 bytes, sha256
+  `2e105e22646e002650a8fbda0339e1614bc2db3708d05a5df8857aaec27c31d3`.
+  Submitted 21 Nov 2026 ~12:04 WIB on Joni's 'Setuju': submission
+  `01a1fc7d-824d-779a-bd2b-8fa38f4b43db`, commit
+  `b6c1c0f4e60fba938d59420414f830131ed61a70`, status submitted, round 1,
+  outcome not decided yet. Claim code ONLY in
+  `~/.config/makefun/the-passport-page-of-a-countr-2-20261121-0318-submission.json`
+  (0600).
 
 ## Live score / rank
 
